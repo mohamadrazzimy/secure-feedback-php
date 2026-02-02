@@ -17,14 +17,14 @@ header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="comments.csv"');
 
 $out = fopen('php://output', 'w');
-fputcsv($out, ['id', 'created_at', 'name', 'comment']);
+fputcsv($out, ['id','created_at','name','comment']);
 
 foreach ($rows as $r) {
   fputcsv($out, [
     (int)$r['id'],
     $r['created_at'],
     csv_safe_cell((string)$r['name']),
-    csv_safe_cell((string)$r['comment']),
+    csv_safe_cell((string)$r['comment'])
   ]);
 }
 fclose($out);
