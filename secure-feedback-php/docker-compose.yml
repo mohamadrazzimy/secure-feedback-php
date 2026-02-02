@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/var/www/html
+      - ./app/db:/var/www/html/db
+      - ./app/storage:/var/www/html/storage
+    environment:
+      - APP_ENV=dev
+      - API_ALLOWLIST=api.github.com
